@@ -8,24 +8,17 @@
     <body ng-controller="timestampCTRL">
       <div class='container'>
         <br />
-        <p class="clementine-text">Timestamp Microservice with Clementine.js</p>
+        <p class="clementine-text">File Metadata Microservice with Clementine.js</p>
       </div>
       <div class="container">
         <h4>User stories: </h4>
         <ol>
-          <li>I can pass a string as a parameter, and it will check to see whether that string contains either a unix timestamp or a natural language date (example: January 1, 2016)</li>
-          <li>If it does, it returns both the Unix timestamp and the natural language form of that date.</li>
-          <li>If it does not contain a date or Unix timestamp, it returns null for those properties.</li>
+          <li>I can submit a FormData object that includes a file upload.</li>
+          <li>When I submit something, I will receive the file size in bytes within the JSON response.</li>
         </ol>
       </div>
-      <div class="container">
-        <h3>Example usage: </h3>
-        <code>https://mighty-river-66160.herokuapp.com/December%2020,%202015</code>
-        </br>
-        <code>https://mighty-river-66160.herokuapp.com/1450569600</code>
-        <h3>Example output: </h3>
-        <code>{ "unix": 1450569600, "natural": "December 20, 2015" }</code>
-      </div>
+      <button>Choose File</button>
+      <button>Upload</button>
       <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js'></script>
       <script type="text/javascript" src="https://code.angularjs.org/1.4.8/angular-resource.min.js"></script>
       <script type="text/javascript" src="https://code.angularjs.org/1.4.8/angular-route.min.js"></script>
