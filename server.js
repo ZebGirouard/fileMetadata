@@ -1,11 +1,12 @@
 'use strict';
 
-var express = require('express');
-var routes = require('./app/routes/index.js');
-var mongoose = require('mongoose');
-var passport = require('passport');
-var session = require('express-session');
-var bodyParser = require('body-parser');
+var express = require('express'),
+routes = require('./app/routes/index.js'),
+mongoose = require('mongoose'),
+passport = require('passport'),
+session = require('express-session'),
+bodyParser = require('body-parser'),
+multer  = require('multer');
 
 var app = express();
 
@@ -17,7 +18,8 @@ var mongoURI = process.env.MONGOLAB_URI || process.env.MONGO_URI;
 mongoose.connect(mongoURI);
 
 app.use(bodyParser());
-    
+app.use(multer({ dest: './uploads/'}).single('uploadedfile'));
+
 app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
 app.use('/public', express.static(process.cwd() + '/public'));
 app.use('/common', express.static(process.cwd() + '/app/common'));

@@ -1,10 +1,10 @@
 'use strict';
 
-var TimestampHandler = require(process.cwd() + '/app/controllers/timestampHandler.server.js');
+var FileMetadataHandler = require(process.cwd() + '/app/controllers/fileMetadataHandler.server.js');
 
 module.exports = function (app, db) {
   
-  var timestampHandler = new TimestampHandler(db);
+  var fileMetadataHandler = new FileMetadataHandler(db);
   
   app.route('/')
     .get(function (req, res) {
@@ -12,6 +12,7 @@ module.exports = function (app, db) {
       console.log("Getting homepage...");
     });
     
-  app.route('/:dateTime')
-    .get(timestampHandler.getTimestamp);
+  app.route('/fileInfo')
+    .get(fileMetadataHandler.getFileInfo)
+    .post(fileMetadataHandler.alertFileInfo);
 };
