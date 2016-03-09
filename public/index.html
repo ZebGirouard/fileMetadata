@@ -14,7 +14,8 @@
         <h4>User stories: </h4>
         <ol>
           <li>I can submit a FormData object that includes a file upload.</li>
-          <li>When I submit something, I will receive the file size in bytes within the JSON response.</li>
+          <li>When I submit something, I will receive the file size in bytes within the JSON response.*</li>
+          *Since this is running on a Heroku server, it may take a long time to load large files.
         </ol>
       </div>
       <form enctype="multipart/form-data" action="/fileInfo" method="POST">
